@@ -3,35 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Employee Registration</title>
 </head>
 <body>
-<?php
-      $con=mysqli_connect('localhost','root','') or die("No Connection");
-      mysqli_select_db($con,"web_project_database") or die("Error");
-      if(isset($_POST["submit"]))
-      {
-        
-        $ename=$_POST["ename"];
-        $salary=$_POST["salary"];
-        $qurrey="insert into employee values('$ename',$salary)";
-        mysqli_query($con,$qurrey);
-      }
-    ?>
-    
-<from method="POST">
-        <table border="3px">
-            <tr><td>Employee_Name</td><td><input type="text" name="ename"></td></tr>
-            <tr><td>Salary</td><td><input type="text" name="salary"></td></tr>
-            <tr><td colspan="2"><input type="submit" value="Add Employee" name="submit"></td></tr>
-            
-            
 
-        </table>
-        
-    </from>
-    
-    
+<?php
+// Database connection
+$con = mysqli_connect('localhost', 'root', '', 'webproject');
+
+// Check if the connection is successful
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST["submit"])) {
+    $ename = mysqli_real_escape_string($con, $_POST["ename"]); // Prevent SQL Injection
+    $salary = $_POST["salary"];
+
+    // Validate salary input
+    if (!is_numeric($salary)) {
+        echo "Salary must be a number!";
+    } else {
+        // SQL Insert Query
+        $query = "INSERT INTO employee (ename, salary) VALUES ('$ename', $salary)";
+
+        // Execute the query
+        if (mysqli_query($con, $query)) {
+            echo "Employee added successfully!";
+        } else {
+            echo "Error adding employee: " . mysqli_error($con);
+        }
+    }
+}
+?>
+
+<!-- Corrected form -->
+<form method="POST">
+    <table border="3px">
+        <tr><td>Employee Name</td><td><input type="text" name="ename" required></td></tr>
+        <tr><td>Salary</td><td><input type="number" name="salary" required></td></tr>
+        <tr><td colspan="2"><input type="submit" value="Add Employee" name="submit"></td></tr>
+    </table>
+</form>
+
 </body>
 </html>
