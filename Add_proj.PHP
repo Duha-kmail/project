@@ -46,6 +46,6 @@ if (isset($_POST["submit"])) {
         <tr><td colspan="2"><input type="submit" value="Add Project" name="submit"></td></tr>
     </table>
 </form>
-
+<a href="webproject.php">Return to The Main page</a>
 </body>
 </html>

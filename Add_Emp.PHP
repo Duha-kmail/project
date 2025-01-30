@@ -54,5 +54,6 @@ if (isset($_POST["submit"])) {
     </table>
 </form>
 
+<a href="webproject.php">Return to The Main page</a>
 </body>
 </html>

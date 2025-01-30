@@ -30,5 +30,6 @@
     <form method="post">
         <input type="submit" name="sub" value="display Project">
     </form>
+    <a href="webproject.php">Return to The Main page</a>
 </body>
 </html>
