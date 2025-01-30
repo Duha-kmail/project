@@ -6,11 +6,20 @@
     <title>logout</title>
 </head>
 <body>
-    <?php
-      session_start();
-      session_destroy();
-      header('location :login.php');
-    ?>
+<?php
+// بدء الجلسة
+session_start();
+
+// حذف جميع بيانات الجلسة
+session_unset();
+
+// تدمير الجلسة
+session_destroy();
+
+// توجيه المستخدم إلى صفحة تسجيل الدخول
+header('location: login.php');
+exit();
+?>
 
 </body>
 </html>
