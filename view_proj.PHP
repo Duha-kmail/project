@@ -6,7 +6,15 @@
     <title>View Projects</title>
 </head>
 <body>
+<?php
+// بدء الجلسة
+session_start();
 
+// التحقق من وجود الجلسة (إذا لم يكن المستخدم مسجل الدخول، يتم توجيهه إلى صفحة تسجيل الدخول)
+if (!isset($_SESSION["user_name"])) {
+    header('location: login.php');
+    exit();
+}?>
     <?php
      $con=mysqli_connect('localhost','root','') or die("No Connection");
      mysqli_select_db($con,"webproject") or die("database Error");
