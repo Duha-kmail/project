@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header> 
         <img src="logo.png" alt="Logo">
         <nav>
             <ul>
-             <li><a href="#h">Home</a></li>
+                <li><a href="#h">Home</a></li>
                 <li><a href="#">View Employees</a></li>
                 <li><a href="#">View Projects</a></li>
                 <li><a href="#">View Employees Projects</a></li>
@@ -23,6 +23,7 @@
                 <li><a href="#">Add Project</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Log out</a></li>
+                
             </ul>
         </nav>
         <!-- Top Right Icons -->
