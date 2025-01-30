@@ -11,18 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header> 
         <img src="logo.png" alt="Logo">
         <nav>
             <ul>
-            <li><a href="#h">Home</a></li>
-                <li><a href="view_Emp.php">View Employees</a></li>
-                <li><a href="view_proj.php">View Projects</a></li>
-                <li><a href="view_Emp_$proj.php">View Employees Projects</a></li>
-                <li><a href="Add_Emp.php">Add emp</a></li>
-                <li><a href="Add_proj.php">Add Project</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Log out</a></li>
+                <li><a href="#h">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#Featured">Featured</a></li>
+                <li><a href="#Arrivals">Arrivals</a></li>
+                <li><a href="#Reviews">Reviews</a></li>
+                <li><a href="#Blog">Blog</a></li>
             </ul>
         </nav>
         <!-- Top Right Icons -->

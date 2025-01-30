@@ -1,5 +1,4 @@
 
-
 * {
   margin: 0;
   padding: 0;
@@ -630,8 +629,8 @@ display: block; /* لتفادي المسافات الإضافية أسفل ال�
 /* Button Styling */
 .btn {
 position: absolute;
-bottom: 50px; 
-left: 90px;
+bottom: 50px; /* يضع الزر أسفل الصورة */
+left: 90px; /* محاذاة للجهة اليسرى */
 padding: 10px 20px;
 background-color: #1b968b;
 color: white;
@@ -643,7 +642,7 @@ transition: background 0.5s ease, transform 0.2s ease;
 
 .btn:hover {
 background-color: #007BFF;
-transform: scale(1.05); 
+transform: scale(1.05); /* تأثير تكبير خفيف */
 }
 div::-webkit-scrollbar {
   width: 12px; 
