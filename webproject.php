@@ -15,12 +15,14 @@
         <img src="logo.png" alt="Logo">
         <nav>
             <ul>
-                <li><a href="#h">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#Featured">Featured</a></li>
-                <li><a href="#Arrivals">Arrivals</a></li>
-                <li><a href="#Reviews">Reviews</a></li>
-                <li><a href="#Blog">Blog</a></li>
+            <li><a href="#h">Home</a></li>
+                <li><a href="View_Emp.php">View Employees</a></li>
+                <li><a href="View_proj.php">View Projects</a></li>
+                <li><a href="View_Emp_&proj.php">View Employees Projects</a></li>
+                <li><a href="Add_Emp.php">Add emp</a></li>
+                <li><a href="Add_proj.php">Add Project</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="logout.php">Log out</a></li>
             </ul>
         </nav>
         <!-- Top Right Icons -->
