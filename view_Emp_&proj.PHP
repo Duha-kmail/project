@@ -17,15 +17,7 @@
 
         // الاستعلام لجلب الموظفين والبروجكتات
         $query = "
-            SELECT 
-                e.id AS employee_id, 
-                e.name AS employee_name, 
-                p.id AS project_id, 
-                p.project_name 
-            FROM employees e
-            JOIN work_on w ON e.id = w.employee_id
-            JOIN projects p ON w.project_id = p.id
-            ORDER BY e.name
+            SELECT * FROM `works_on`
         ";
 
         // تنفيذ الاستعلام
