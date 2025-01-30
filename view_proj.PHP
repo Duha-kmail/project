@@ -6,6 +6,13 @@
     <title>View Projects</title>
 </head>
 <body>
+<?php
+      session_start();
+      if($_SESSION["user_name"])
+       header('location: login.php');
+     else
+       echo "Welcom :".$_SESSION["user_name"];
+    ?>
     <?php
      $con=mysqli_connect('localhost','root','') or die("No Connection");
      mysqli_select_db($con,"webproject") or die("database Error");
@@ -23,5 +30,6 @@
     <form method="post">
         <input type="submit" name="sub" value="display Project">
     </form>
+    <a href="webproject.php">Return to The Main page</a>
 </body>
 </html>

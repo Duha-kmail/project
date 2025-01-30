@@ -6,7 +6,13 @@
     <title>Employee Registration</title>
 </head>
 <body>
-
+<?php
+      session_start();
+      if($_SESSION["user_name"])
+       header('location: login.php');
+     else
+       echo "Welcom :".$_SESSION["user_name"];
+    ?>
 <?php
 // Database connection
 $con = mysqli_connect('localhost', 'root', '', 'webproject');
@@ -48,5 +54,6 @@ if (isset($_POST["submit"])) {
     </table>
 </form>
 
+<a href="webproject.php">Return to The Main page</a>
 </body>
 </html>

@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <?php
+      session_start();
+      if($_SESSION["user_name"])
+       header('location: login.php');
+     else
+       echo "Welcom :".$_SESSION["user_name"];
+    ?>
     <header> 
         <img src="logo.png" alt="Logo">
         <nav>

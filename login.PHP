@@ -111,7 +111,7 @@ if (isset($_POST["login"])) {
 
     if (mysqli_num_rows($result) > 0) {
         echo "<p style='color:green;'>Login successful!</p>";
-        
+        header('location: webproject.php');
         // Redirect to dashboard or another page
     } else {
         echo "<p style='color:red;'>Invalid username or password! <a href='Add_users.php'>Register here</a></p>";
