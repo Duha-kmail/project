@@ -22,6 +22,7 @@ if (isset($_POST["submit"])) {
     // Execute the query
     if (mysqli_query($con, $query)) {
         echo "User added successfully!";
+        header('location: login.php');
     } else {
         echo "Error: " . mysqli_error($con);
     }

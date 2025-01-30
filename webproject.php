@@ -13,10 +13,10 @@
 <body>
     <?php
       session_start();
-      if($_SESSION["user_name"])
-       header('location: login.php');
+      if(isset($_SESSION["user_name"]))
+       header('location: login.PHP');
      else
-       echo "Welcom :".$_SESSION["user_name"];
+       echo "Welcom :". htmlspecialchars($_SESSION["user_name"]);
     ?>
     <header> 
         <img src="logo.png" alt="Logo">
