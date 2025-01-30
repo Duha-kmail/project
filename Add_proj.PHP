@@ -17,10 +17,11 @@ if (!$con) {
 }
 
 if (isset($_POST["submit"])) {
-    $pname = mysqli_real_escape_string($con, $_POST["pname"]); // Prevent SQL Injection
+    $pno = mysqli_real_escape_string($con, $_POST["pno"]);
+    $pname = mysqli_real_escape_string($con, $_POST["pname"]);
 
-    // SQL Insert Query (assuming 'pno' is auto-increment)
-    $query = "INSERT INTO projects (pname) VALUES ('$pname')";
+    // SQL Insert Query
+    $query = "INSERT INTO projects (pno, pname) VALUES ('$pno', '$pname')";
 
     // Execute the query
     if (mysqli_query($con, $query)) {
@@ -34,6 +35,7 @@ if (isset($_POST["submit"])) {
 <!-- Corrected form -->
 <form method="POST">
     <table border="3px">
+        <tr><td>Project ID</td><td><input type="text" name="pno" required></td></tr>
         <tr><td>Project Name</td><td><input type="text" name="pname" required></td></tr>
         <tr><td colspan="2"><input type="submit" value="Add Project" name="submit"></td></tr>
     </table>
