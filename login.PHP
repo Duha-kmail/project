@@ -29,7 +29,7 @@ if (isset($_POST["login"])) {
         
         // Redirect to dashboard or another page
     } else {
-        echo "<p style='color:red;'>Invalid username or password! <a href='register.php'>Register here</a></p>";
+        echo "<p style='color:red;'>Invalid username or password! <a href='Add_users.php'>Register here</a></p>";
     }
 }
 ?>

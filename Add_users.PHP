@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
     $user_id = $_POST["user_id"];
 
     // SQL Insert Query
-    $query = "INSERT INTO users (user_id, user_name, password) VALUES ('$user_id', '$uname', '$pass')";
+    $query = "INSERT INTO users (user_id, user_name, password) VALUES ($user_id, '$uname', '$pass')";
 
     // Execute the query
     if (mysqli_query($con, $query)) {
@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
     <table border="3px">
         <tr><td>User ID</td><td><input type="text" name="user_id" required></td></tr>
         <tr><td>User Name</td><td><input type="text" name="uname" required></td></tr>
-        <tr><td>Password</td><td><input type="text" name="pass" required></td></tr>
+        <tr><td>Password</td><td><input type="password" name="pass" required></td></tr>
         <tr><td colspan="2"><input type="submit" value="Add User" name="submit"></td></tr>
     </table>
 </form>
