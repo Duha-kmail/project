@@ -11,13 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <?php
-      session_start();
-      if(isset($_SESSION["user_name"]))
-       header('location: login.PHP');
-     else
-       echo "Welcom :". htmlspecialchars($_SESSION["user_name"]);
-    ?>
+    
     <header> 
         <img src="logo.png" alt="Logo">
         <nav>
@@ -29,7 +23,7 @@
                 <li><a href="Add_Emp.php">Add emp</a></li>
                 <li><a href="Add_proj.php">Add Project</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="logout.php">Log out</a></li>
+                <li><a href="login.php">Log out</a></li>
             </ul>
         </nav>
         <!-- Top Right Icons -->

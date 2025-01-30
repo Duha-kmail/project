@@ -6,13 +6,7 @@
     <title>View Employees and Projects</title>
 </head>
 <body>
-<?php
-      session_start();
-      if($_SESSION["user_name"])
-       header('location: login.php');
-     else
-       echo "Welcom :".$_SESSION["user_name"];
-    ?>
+
     <?php
     // اتصال بقاعدة البيانات
     $con = mysqli_connect('localhost', 'root', '') or die("Connection failed: " . mysqli_connect_error());

@@ -6,13 +6,7 @@
     <title>Project Registration</title>
 </head>
 <body>
-<?php
-      session_start();
-      if($_SESSION["user_name"])
-       header('location: login.php');
-     else
-       echo "Welcom :".$_SESSION["user_name"];
-    ?>
+
 <?php
 // Database connection
 $con = mysqli_connect('localhost', 'root', '', 'webproject');

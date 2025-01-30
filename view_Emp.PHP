@@ -8,8 +8,10 @@
 <body>
 <?php
       session_start();
-      if(!$_SESSION["user_name"])
+      if(!$_SESSION["user_name"]){
        header('location: login.php');
+       exit();
+      }
      else
        echo "Welcom :".$_SESSION["user_name"];
     ?>
