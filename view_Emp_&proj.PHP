@@ -32,19 +32,19 @@
         $query_result = mysqli_query($con, $query);
 
         // التحقق إذا كان هناك نتائج
-        if (mysqli_num_rows($query_result) > 0) {
+        
             echo "<table border='2'>";
-            echo "<tr><th>Employee_ID</th><th>Employee_Name</th><th>Project_ID</th><th>Project_Name</th></tr>";
+            echo "<tr><th>Employee_ID</th><th>Project_ID</th></tr>";
 
             // عرض النتائج في الجدول
             while ($q = mysqli_fetch_array($query_result)) {
-                echo "<tr><td>" . $q[0] . "</td><td>" . $q[1] . "</td><td>" . $q[2] . "</td><td>" . $q[3] . "</td></tr>";
+                echo "<tr><td>" . $q[0] . "</td><td>" . $q[1] . "</td></tr>";
             }
             echo "</table>";
         } else {
             echo "No employees or projects found.";
         }
-    }
+    
     ?>
 
     <!-- نموذج لعرض البيانات -->
