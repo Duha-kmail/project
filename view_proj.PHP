@@ -4,34 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .display-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .display-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<?php
-// بدء الجلسة
-session_start();
 
-// التحقق من وجود الجلسة (إذا لم يكن المستخدم مسجل الدخول، يتم توجيهه إلى صفحة تسجيل الدخول)
-if (!isset($_SESSION["user_name"])) {
-    header('location: login.php');
-    exit();
-}?>
+<div class="container">
     <?php
-     $con=mysqli_connect('localhost','root','') or die("No Connection");
-     mysqli_select_db($con,"webproject") or die("database Error");
-     $query1="select * from projects;";
-     $query2=mysqli_query($con,$query1);
-     if(isset($_POST["sub"]))
-     {
-        echo "<table border='2'>";
-        echo "<tr><td>Project_ID</td><td>Project_Name</td></tr>";
-        while($q=mysqli_fetch_array($query2))
-          echo "<tr><td>$q[0]</td><td>$q[1]</td></tr>";
+    session_start();
+    if (!isset($_SESSION["user_name"])) {
+        header('location: login.php');
+        exit();
+    }
+
+    $con = mysqli_connect('localhost', 'root', '') or die("No Connection");
+    mysqli_select_db($con, "webproject") or die("Database Error");
+
+    if (isset($_POST["sub"])) {
+        $query1 = "SELECT * FROM projects;";
+        $query2 = mysqli_query($con, $query1);
+        echo "<table>";
+        echo "<tr><th>Project ID</th><th>Project Name</th></tr>";
+        while ($q = mysqli_fetch_array($query2)) {
+            echo "<tr><td>$q[0]</td><td>$q[1]</td></tr>";
+        }
         echo "</table>";
-     }
+    }
     ?>
+
     <form method="post">
-        <input type="submit" name="sub" value="display Project">
+        <input type="submit" name="sub" value="Display Project" class="display-btn">
     </form>
-    <a href="webproject.php">Return to The Main page</a>
+
+    <a href="webproject.php" class="back-link">Return to The Main Page</a>
+</div>
+
 </body>
 </html>
