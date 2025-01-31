@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
-</head>
-<style>
+    <style>
     * {
             margin: 0;
             padding: 0;
@@ -68,7 +67,7 @@
         .btn {
             width: 100%;
             padding: 10px;
-            background:rgb(55, 238, 9);
+            background: rgb(55, 238, 9);
             border: none;
             color: white;
             font-size: 16px;
@@ -79,7 +78,7 @@
         }
 
         .btn:hover {
-            background:rgb(0, 0, 0);
+            background: rgb(0, 0, 0);
         }
 
         .login-link {
@@ -97,18 +96,16 @@
             text-decoration: underline;
         }
     </style>
+</head>
 <body>
 <?php
-// بدء الجلسة
 session_start();
-
-// التحقق من وجود الجلسة (إذا لم يكن المستخدم مسجل الدخول، يتم توجيهه إلى صفحة تسجيل الدخول)
 if (!isset($_SESSION["user_name"])) {
     header('location: login.php');
     exit();
-}?>
+}
+?>
 <?php
-// Database connection
 $con = mysqli_connect('localhost', 'root', '', 'webproject') or die("No Connection");
 
 if (isset($_POST["submit"])) {
@@ -116,10 +113,8 @@ if (isset($_POST["submit"])) {
     $pass = $_POST["pass"];
     $user_id = $_POST["user_id"];
 
-    // SQL Insert Query
-    $query = "INSERT INTO users (user_id, user_name, password) VALUES ($user_id, '$uname', '$pass')";
+    $query = "INSERT INTO users (user_id, user_name, password) VALUES ('$user_id', '$uname', '$pass')";
 
-    // Execute the query
     if (mysqli_query($con, $query)) {
         echo "User added successfully!";
         header('location: login.php');
@@ -129,26 +124,20 @@ if (isset($_POST["submit"])) {
 }
 ?>
 
-<!-- Form -->
 <form method="POST">
-    
     <h1>Sign Up Now!</h1>
-<div class="register-container">
+    <div class="register-container">
         <div class="input-box">
-            
             <input type="text" placeholder="User ID" name="user_id" required>
         </div>
         <div class="input-box">
-         
             <input type="text" placeholder="User Name" name="uname" required>
         </div>
         <div class="input-box">
-            
             <input type="password" placeholder="PassWord" name="pass" required>
         </div>
         <button class="btn" name="submit">Add User</button>
     </div>
 </form>
-
 </body>
 </html>

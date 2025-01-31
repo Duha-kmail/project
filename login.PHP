@@ -1,37 +1,3 @@
-<?php
-// بدء الجلسة
-session_start();
-
-// الاتصال بقاعدة البيانات
-$con = mysqli_connect('localhost', 'root', '', 'webproject');
-
-// التحقق من نجاح الاتصال
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// التحقق من إرسال النموذج
-if (isset($_POST["login"])) {
-    $username = mysqli_real_escape_string($con, $_POST["username"]);
-    $password = mysqli_real_escape_string($con, $_POST["password"]);
-
-    // التحقق من وجود المستخدم في قاعدة البيانات
-    $query = "SELECT * FROM users WHERE user_name='$username' AND password='$password'";
-    $result = mysqli_query($con, $query);
-
-    if (mysqli_num_rows($result) > 0) {
-        // تخزين بيانات المستخدم في الجلسة
-        $_SESSION["user_name"] = $username;
-
-        // توجيه المستخدم إلى الصفحة الرئيسية
-        header('location: webproject.php');
-        exit();
-    } else {
-        echo "<p style='color:red;'>Invalid username or password! <a href='Add_users.php'>Register here</a></p>";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +90,31 @@ if (isset($_POST["login"])) {
     </style>
 </head>
 <body>
-    <!-- نموذج تسجيل الدخول -->
+    <?php
+    session_start();
+    $con = mysqli_connect('localhost', 'root', '', 'webproject');
+    
+    if (!$con) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    if (isset($_POST["login"])) {
+        $username = mysqli_real_escape_string($con, $_POST["username"]);
+        $password = mysqli_real_escape_string($con, $_POST["password"]);
+    
+        $query = "SELECT * FROM users WHERE user_name='$username' AND password='$password'";
+        $result = mysqli_query($con, $query);
+    
+        if (mysqli_num_rows($result) > 0) {
+            $_SESSION["user_name"] = $username;
+            header('location: webproject.php');
+            exit();
+        } else {
+            echo "<p style='color:red;'>Invalid username or password! <a href='Add_users.php'>Register here</a></p>";
+        }
+    }
+    ?>
+
     <form method="POST">
         <div class="login-container">
             <h2>Login</h2>
@@ -134,7 +124,7 @@ if (isset($_POST["login"])) {
             <div class="input-box">
                 <input type="password" placeholder="Password" name="password" required>
             </div>
-            <button class="btn" value="Login" name="login">Login</button>
+            <button class="btn" type="submit" name="login">Login</button>
             <div class="register">
                 Don't have an account? <a href="Add_users.php">Register here</a>
             </div>
